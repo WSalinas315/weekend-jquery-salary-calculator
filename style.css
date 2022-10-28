@@ -1,0 +1,14 @@
+#pageTitle{
+    text-align: center;
+}
+
+/* .submit{
+    align-items: center;
+    align-content: center; 
+    justify-content: end; 
+} */
+
+td{
+    padding-left: 5px;
+    padding-right: 5px;
+}
