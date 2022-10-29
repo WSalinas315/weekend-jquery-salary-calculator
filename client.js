@@ -32,9 +32,6 @@ function addWorker(){
     // add drone object to the employees array
     employees.push(drone);
 
-    // Call to calculate monthly costs
-    calculateMonthly();
-
     // increment unique employee identifier
     empIdentifier++;
 
@@ -46,9 +43,11 @@ function addWorker(){
     $('#salaryEmp').val('');
 
     //console.log(employees);
+
+    // Calculate monthly costs and update DOM
+    calculateMonthly();
     render();
 }
-
 
 // render function
 function render(){
@@ -64,11 +63,17 @@ function render(){
                 <td>${worker.lastName}</td>
                 <td>${worker.empID}</td>
                 <td>${worker.title}</td>
-                <td>${worker.annualSalary}</td>
+                <td>$${worker.annualSalary}</td>
                 <td><button class="buttons" id="${worker.uniqueID}">Delete</button></td>
             </tr>
         `);
     }
+
+    // Update Monthly Costs in DOM
+    $('#monthly-costs').empty();
+    $('#monthly-costs').append(`
+        <h2>Total Monthly: $${monthlyCosts}</h2>
+    `);
 }
 
 // Function to remove a worker
@@ -87,6 +92,8 @@ function removeWorker(){
     // remove employee object from the employees array
     employees.splice(employeeIndex, 1);
 
+    // Recalculate monthly costs and render data to DOM
+    calculateMonthly();
     render();
 }
 
@@ -97,5 +104,5 @@ function calculateMonthly(){
         tempSum += Number(worker.annualSalary);
     }
     console.log('Total employee salary: ', tempSum);
-    monthlyCosts = tempSum/12;
+    monthlyCosts = (tempSum/12).toFixed(2);
 }
