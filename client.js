@@ -9,8 +9,7 @@ let empIdentifier = 0;
 // onReady function
 function onReady(){
     $('#submit-btn').on('click', addWorker);
-
-
+    $('#employee-table').on('click', '.buttons', removeWorker);
 }
 
 // addWorker function adds employee to the array and clears input fields
@@ -50,6 +49,8 @@ function addWorker(){
 function render(){
 console.log('in render function');
 
+$('#employee-table').empty();
+
 // append worker data to employees table in the DOM
 for(let worker of employees){
     $('#employee-table').append(`
@@ -59,14 +60,35 @@ for(let worker of employees){
             <td class="tableRender${worker.uniqueID}">${worker.empID}</td>
             <td class="tableRender${worker.uniqueID}">${worker.title}</td>
             <td class="tableRender${worker.uniqueID}">${worker.annualSalary}</td>
-            <td class="tableRender${worker.uniqueID}"><button>Delete</button></td>
+            <td class="tableRender${worker.uniqueID} buttons" id="${worker.uniqueID}"><button>Delete</button></td>
         </tr>
     `);
 }
 
+// ^^^ add class for background colors and if statements for index positions????
+
 // append empty bottom row to table
-$('employee-table').append(`<tr></tr>`);
+//$('employee-table').append(`<tr></tr>`);
 
 
 
+}
+
+// Function to remove a worker
+function removeWorker(){
+    let idForIndex = this.id;
+    console.log('Index to remove:', removeIndex);
+    let employeeIndex;
+
+    //check for a unique employee match
+    for (let i=0;i<employees.length;i++){
+        if(employees[i].uniqueID == idForIndex){
+            employeeIndex = i;
+        }
+    }
+
+    // remove employee object from the employees array
+    employees.splice(employeeIndex, 1);
+
+    render();
 }

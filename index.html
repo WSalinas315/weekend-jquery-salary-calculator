@@ -15,15 +15,11 @@
         </div>
         <div id="empFields">
             <h2>Add Employee</h2>
-            <table id="inputValues">
-                <tr>
-                    <td><input id="firstEmp" type="text" placeholder="First Name"></td>
-                    <td><input id="lastEmp" type="text" placeholder="Last Name"></td>
-                    <td><input id="idEmp" type="text" placeholder="ID"></td>
-                    <td><input id="titleEmp" type="text" placeholder="Title"></td>
-                    <td><input id="salaryEmp" type="text" placeholder="Annual Salary"></td>
-                </tr>
-            </table>
+                <input id="firstEmp" type="text" placeholder="First Name">
+                <input id="lastEmp" type="text" placeholder="Last Name">
+                <input id="idEmp" type="text" placeholder="ID">
+                <input id="titleEmp" type="text" placeholder="Title">
+                <input id="salaryEmp" type="text" placeholder="Annual Salary">
             <br>
             <div class="submit">
                 <button class="buttons" id="submit-btn">Submit</button>
@@ -32,7 +28,7 @@
         <div id="dataTable">
             <h2>Employees</h2>
             <table id="employee-table">
-                <tr>
+                <tr id="header-row">
                     <th width ="150px">First Name</th>
                     <th width ="150px">Last Name</th>
                     <th width ="100px">ID</th>
