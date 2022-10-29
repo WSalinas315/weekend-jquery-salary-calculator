@@ -47,7 +47,7 @@ function addWorker(){
 
 // render function
 function render(){
-console.log('in render function');
+//console.log('in render function');
 
 $('#employee-table').empty();
 
@@ -55,12 +55,12 @@ $('#employee-table').empty();
 for(let worker of employees){
     $('#employee-table').append(`
         <tr>
-            <td class="tableRender${worker.uniqueID}">${worker.firstName}</td>
-            <td class="tableRender${worker.uniqueID}">${worker.lastName}</td>
-            <td class="tableRender${worker.uniqueID}">${worker.empID}</td>
-            <td class="tableRender${worker.uniqueID}">${worker.title}</td>
-            <td class="tableRender${worker.uniqueID}">${worker.annualSalary}</td>
-            <td class="tableRender${worker.uniqueID} buttons" id="${worker.uniqueID}"><button>Delete</button></td>
+            <td>${worker.firstName}</td>
+            <td>${worker.lastName}</td>
+            <td>${worker.empID}</td>
+            <td>${worker.title}</td>
+            <td>${worker.annualSalary}</td>
+            <td><button class="buttons" id="${worker.uniqueID}">Delete</button></td>
         </tr>
     `);
 }
@@ -77,7 +77,7 @@ for(let worker of employees){
 // Function to remove a worker
 function removeWorker(){
     let idForIndex = this.id;
-    console.log('Index to remove:', removeIndex);
+    //console.log('Index to remove:', idForIndex);
     let employeeIndex;
 
     //check for a unique employee match
@@ -86,7 +86,7 @@ function removeWorker(){
             employeeIndex = i;
         }
     }
-
+    //console.log('employee Index for splicing is:', employeeIndex);
     // remove employee object from the employees array
     employees.splice(employeeIndex, 1);
 
