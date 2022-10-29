@@ -17,6 +17,7 @@ function onReady(){
 function addWorker(){
     console.log('in add worker function');
 
+    // populate drone object for input fields
     let drone = {
         firstName: $('#firstEmp').val(),
         lastName: $('#lastEmp').val(),
@@ -37,12 +38,35 @@ function addWorker(){
     $('#lastEmp').val('');
     $('#idEmp').val('');
     $('#titleEmp').val('');
-    $('#annualSalary').val('');
+    $('#salaryEmp').val('');
+
+    console.log(employees);
+
+    render();
 }
 
 
 // render function
 function render(){
 console.log('in render function');
+
+// append worker data to employees table in the DOM
+for(let worker of employees){
+    $('#employee-table').append(`
+        <tr>
+            <td class="tableRender${worker.uniqueID}">${worker.firstName}</td>
+            <td class="tableRender${worker.uniqueID}">${worker.lastName}</td>
+            <td class="tableRender${worker.uniqueID}">${worker.empID}</td>
+            <td class="tableRender${worker.uniqueID}">${worker.title}</td>
+            <td class="tableRender${worker.uniqueID}">${worker.annualSalary}</td>
+            <td class="tableRender${worker.uniqueID}"><button>Delete</button></td>
+        </tr>
+    `);
+}
+
+// append empty bottom row to table
+$('employee-table').append(`<tr></tr>`);
+
+
 
 }
