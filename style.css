@@ -1,10 +1,41 @@
 #pageTitle{
     text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: darkgray;
+}
+
+body{
+    margin: 3%;
+    max-width: 1000px;
+    min-width: 800px;
+}
+
+#empFields{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+}
+
+#addEmpLabel{
+    display: flex;
+}
+
+#input-fields{
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input{
+    flex-grow: 1;
 }
 
 .submit{
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
 }
 
 table, th, td{
@@ -15,23 +46,17 @@ table, th, td{
     border-collapse: collapse;
 }
 
-/* th{
-    border: 1px;
-    border-style: solid;
-    border-collapse: collapse;
-}
-
-#employee-table{
-    border: 1px;
-    border-style: solid;
-    border-collapse: collapse;
-}
-
-.tableRender{
-    border: 1px;
-    border-style: solid;
-} */
-
 #header-row{
     background-color: darkgray;
+}
+
+#monthly-costs{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#monthly-red{
+    display: flex;
+    justify-content: flex-end;
+    background-color: red;
 }

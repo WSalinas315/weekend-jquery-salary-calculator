@@ -68,12 +68,17 @@ function render(){
             </tr>
         `);
     }
-
     // Update Monthly Costs in DOM
     $('#monthly-costs').empty();
-    $('#monthly-costs').append(`
-        <h2>Total Monthly: $${monthlyCosts}</h2>
-    `);
+    if(monthlyCosts <= 20000){
+        $('#monthly-costs').append(`
+            <h2>Total Monthly: $${monthlyCosts}</h2>
+        `);
+    } else{
+        $('#monthly-costs').append(`
+            <h2 id="monthly-red">Total Monthly: $${monthlyCosts}</h2>
+        `);
+    }
 }
 
 // Function to remove a worker
@@ -105,4 +110,5 @@ function calculateMonthly(){
     }
     console.log('Total employee salary: ', tempSum);
     monthlyCosts = (tempSum/12).toFixed(2);
+
 }
