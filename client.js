@@ -61,7 +61,7 @@ function render(){
     //empty the existing employee data on the DOM
     $('#employee-table').empty();
 
-    // append worker data to employees table in the DOM
+    // append worker data to employees table in the DOM and assign a class for gray rows on odd numbered array entries
     for(let i=0;i<employees.length;i++){
         if(i == 0 || i % 2 == 0){
             $('#employee-table').append(`
@@ -71,7 +71,7 @@ function render(){
                     <td>${employees[i].empID}</td>
                     <td>${employees[i].title}</td>
                     <td>$${employees[i].annualSalary}</td>
-                    <td><button class="buttons" id="${employees[i].uniqueID}">Delete</button></td>
+                    <td><button class="buttons del-but" id="${employees[i].uniqueID}">Delete</button></td>
                 </tr>
             `);
         } else{
@@ -82,12 +82,12 @@ function render(){
                     <td>${employees[i].empID}</td>
                     <td>${employees[i].title}</td>
                     <td>$${employees[i].annualSalary}</td>
-                    <td><button class="buttons" id="${employees[i].uniqueID}">Delete</button></td>
+                    <td><button class="buttons del-but" id="${employees[i].uniqueID}">Delete</button></td>
                 </tr>
             `);
         }
     }
-    // Update Monthly Costs in DOM
+    // Update Monthly Costs in DOM and assign a class for a red background on monthly costs over 20000
     $('#monthly-costs').empty();
     if(monthlyCosts <= 20000){
         $('#monthly-costs').append(`

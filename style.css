@@ -64,3 +64,8 @@ table, th, td{
 .gray-row{
     background-color: rgb(226, 226, 226);
 }
+
+.del-but{
+    display: block;
+    margin: auto;
+}
