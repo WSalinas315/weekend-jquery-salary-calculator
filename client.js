@@ -19,6 +19,12 @@ function onReady(){
 function addWorker(){
     console.log('in add worker function');
 
+    // ensure no fields are blank
+    if($('#firstEmp').val() == '' || $('#lastEmp').val() == '' || $('#idEmp').val() == '' || $('#titleEmp').val() == '' || $('#salaryEmp').val() == ''){
+        console.log('Cannot add employee data due to one or more blank fields.');
+        return;
+      }
+
     // populate drone object for input fields
     let drone = {
         firstName: $('#firstEmp').val(),
