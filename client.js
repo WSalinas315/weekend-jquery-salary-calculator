@@ -56,17 +56,30 @@ function render(){
     $('#employee-table').empty();
 
     // append worker data to employees table in the DOM
-    for(let worker of employees){
-        $('#employee-table').append(`
-            <tr>
-                <td>${worker.firstName}</td>
-                <td>${worker.lastName}</td>
-                <td>${worker.empID}</td>
-                <td>${worker.title}</td>
-                <td>$${worker.annualSalary}</td>
-                <td><button class="buttons" id="${worker.uniqueID}">Delete</button></td>
-            </tr>
-        `);
+    for(let i=0;i<employees.length;i++){
+        if(i == 0 || i % 2 == 0){
+            $('#employee-table').append(`
+                <tr>
+                    <td>${employees[i].firstName}</td>
+                    <td>${employees[i].lastName}</td>
+                    <td>${employees[i].empID}</td>
+                    <td>${employees[i].title}</td>
+                    <td>$${employees[i].annualSalary}</td>
+                    <td><button class="buttons" id="${employees[i].uniqueID}">Delete</button></td>
+                </tr>
+            `);
+        } else{
+            $('#employee-table').append(`
+                <tr class="gray-row">
+                    <td>${employees[i].firstName}</td>
+                    <td>${employees[i].lastName}</td>
+                    <td>${employees[i].empID}</td>
+                    <td>${employees[i].title}</td>
+                    <td>$${employees[i].annualSalary}</td>
+                    <td><button class="buttons" id="${employees[i].uniqueID}">Delete</button></td>
+                </tr>
+            `);
+        }
     }
     // Update Monthly Costs in DOM
     $('#monthly-costs').empty();

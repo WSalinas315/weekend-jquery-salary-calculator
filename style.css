@@ -60,3 +60,7 @@ table, th, td{
     justify-content: flex-end;
     background-color: red;
 }
+
+.gray-row{
+    background-color: rgb(226, 226, 226);
+}
